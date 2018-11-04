@@ -1,4 +1,7 @@
 function onStartup() {
+  //Firebase Code
+  window.FirebaseAuth = new FirebaseAuth();
+
 	//Check if this device is supported
 	const supported = 'mediaDevices' in navigator;
 	console.log(supported);
@@ -12,12 +15,12 @@ function onStartup() {
     video: true,
   };
 
-  captureButton.addEventListener('click', () => {
-    // Draw the video frame to the canvas.
-    context.drawImage(player, 0, 0, canvas.width, canvas.height);
+  // captureButton.addEventListener('click', () => {
+  //   // Draw the video frame to the canvas.
+  //   context.drawImage(player, 0, 0, canvas.width, canvas.height);
 
-    //Upload the image to the server
-  });
+  //   //Upload the image to the server
+  // });
 
   navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
     player.srcObject = stream;
@@ -78,8 +81,8 @@ FirebaseAuth.prototype.signOut = function() {
 FirebaseAuth.prototype.onAuthStateChanged = function(user) {
   if(user) { 
     //this.nameButton.innerHTML = user.displayName;
-    this.loginButton.removeAttribute("hidden");
-    this.nameButton.setAttribute("hidden", true);
+    this.nameButton.removeAttribute("hidden");
+    this.loginButton.setAttribute("hidden", true);
 
 
     // $('#nameButton').html(user.displayName);
@@ -87,11 +90,11 @@ FirebaseAuth.prototype.onAuthStateChanged = function(user) {
     // $('#nameButton').removeAttr("hidden");
   } 
   else { 
-    this.nameButton.removeAttribute("hidden");
-    this.loginButton.setAttribute("hidden", true);
+    this.loginButton.removeAttribute("hidden");
+    this.nameButton.setAttribute("hidden", true);
   }
 };
 
 FirebaseAuth.prototype.captureImage = function() {
-
+  console.log("Hello");
 };
