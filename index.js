@@ -100,7 +100,9 @@ FirebaseAuth.prototype.onAuthStateChanged = function(user) {
 };
 
 FirebaseAuth.prototype.captureImage = function() {
-  console.log("Hello");
+  $('#modal-loading').removeAttr("hidden");
+  $('#modal-result-success').attr("hidden", true);
+  $('#modal-result-failure').attr("hidden", true);
 
   this.context.drawImage(this.player, 0, 0, this.canvas.width, this.canvas.height);
 
@@ -129,9 +131,21 @@ FirebaseAuth.prototype.captureImage = function() {
         console.log(response);
         if(response.success == true) { //valid
           console.log(response.found);
+
+          $('#image-success').attr("src", url);
+
+          $('#modal-loading').attr("hidden", true);
+          $('#modal-result-success').removeAttr("hidden");
+          $('#modal-result-failure').attr("hidden", true);
         }
         else {
           console.log(response.error);
+
+          $('#image-failed').attr("src", url);
+
+          $('#modal-loading').attr("hidden", true);
+          $('#modal-result-failure').removeAttr("hidden");
+          $('#modal-result-success').attr("hidden", true);
         }
       });
     }.bind(this)).catch(function(error) {

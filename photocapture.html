@@ -89,18 +89,31 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalTitle">Results</h5>
+            <h5 class="modal-title text-dark" id="modalTitle">Results</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body text-dark">
-            Here is what we gathered from your picture:
+          <div id="modal-loading">
+            <div class="modal-body text-dark">
+              <h4>We're submitting your picture! Please hold on...</h4>
+            </div>
           </div>
-          <div class="modal-body"></div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <div id="modal-result-success">
+            <div class="modal-body text-dark">
+              <h4>Congratulations! You found the answer! Please wait for others to finish.</h4>
+              <img src="" id="image-success" alt="Submitted Image" height="200">
+            </div>
           </div>
+          <div id="modal-result-failure">
+            <div class="modal-body text-dark">
+              <h4>We couldn't find the answer. Try again!</h4>
+              <img src="" id="image-failed" alt="Submitted Image" height="200">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+          </div>          
         </div>
       </div>
     </div>
