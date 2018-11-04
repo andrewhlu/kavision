@@ -124,8 +124,8 @@ FirebaseAuth.prototype.captureImage = function() {
         "url": urlstring,
         "method": "POST",
         "formData": { 
-          url: url,
-          game: 'ABCD' 
+          "url": url,
+          "game": 'ABCD' 
         }
       }
 
