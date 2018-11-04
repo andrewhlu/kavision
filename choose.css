@@ -1,3 +1,25 @@
 body {
 	background-color: #A8D9F1;
 }
+
+/* #buttonHolder {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	/* margin: 0 auto; */
+/* }  */
+
+#creator {
+
+}
+
+#joiner {
+
+}
+
+button {
+	width: 10px;
+}
