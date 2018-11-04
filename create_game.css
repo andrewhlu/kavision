@@ -1,0 +1,18 @@
+#create_game_jumbo {
+    font-size: 6.0em;
+}
+
+.form-control {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media only screen and (max-width: 600px) {
+	#mySection {
+		margin-top: 20%;
+	}
+  .jumbotron-heading {
+  	font-size: 4.0em;
+  }
+}
+
