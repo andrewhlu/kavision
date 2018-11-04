@@ -108,7 +108,7 @@ FirebaseAuth.prototype.captureImage = function() {
   this.imgName = randomString(10, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
   // Data URL string
-  this.storage().ref().child('/images/' + this.imgName + '.png').putString(this.image, 'data_url').then(function(snapshot) {
+  this.storage.ref().child('/images/' + this.imgName + '.png').putString(this.image, 'data_url').then(function(snapshot) {
     console.log('Uploaded a data_url string!');
 
     //Get the URL of the newly uploaded object
