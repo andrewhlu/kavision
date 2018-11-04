@@ -1,0 +1,44 @@
+/* Custom fonts */
+@font-face {
+  font-family: Avenir;
+  src: url("fonts/AvenirLTStd-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Avenir;
+  font-weight: bold;
+  src: url("fonts/AvenirLTStd-Black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Produkt;
+  src: url("fonts/Produkt-Light.otf") format("opentype");
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #A8D9F1;
+}
+body {
+  color: #fff;
+  text-align: center;
+}
+h1 {
+  font-size: 400%;
+  font-family: "Produkt", sans-serif;
+}
+
+h2 {
+  font-size: 150%;
+  font-family: "Avenir", sans-serif;
+}
+
+p {
+  font-size: 100%;
+  font-family: "Avenir", sans-serif;
+}

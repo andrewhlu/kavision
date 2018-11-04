@@ -1,44 +1,47 @@
-/* Custom fonts */
-@font-face {
-  font-family: Avenir;
-  src: url("fonts/AvenirLTStd-Light.otf") format("opentype");
-}
-
-@font-face {
-  font-family: Avenir;
-  font-weight: bold;
-  src: url("fonts/AvenirLTStd-Black.otf") format("opentype");
-}
-
-@font-face {
-  font-family: Produkt;
-  src: url("fonts/Produkt-Light.otf") format("opentype");
-}
-
-/*
- * Base structure
- */
-
-html,
 body {
-  height: 100%;
-  background-color: #A8D9F1;
-}
-body {
-  color: #fff;
-  text-align: center;
-}
-h1 {
-  font-size: 400%;
-  font-family: "Produkt", sans-serif;
+	background-color: #A8D9F1;
 }
 
-h2 {
-  font-size: 150%;
-  font-family: "Avenir", sans-serif;
+#bannerTitle {
+	/*position: fixed;*/
+	text-align: center;
+	font-size: 10em;
 }
 
-p {
-  font-size: 100%;
-  font-family: "Avenir", sans-serif;
+#bannerTitleContainer {
+	/*vertical-align: baseline;*/
+	margin-top: 15%;
 }
+
+button {
+	color: #b4a8f1;
+}
+
+#mySection {
+	margin-top: 10%;
+	background: transparent;
+}
+
+.jumbotron-heading {
+	/*font-size: 100px;*/
+	font-size: 7.0em;
+}
+
+.btn-xlarge {
+    padding: 14px 28px;
+    font-size: 22px; 
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+@media only screen and (max-width: 600px) {
+	#mySection {
+		margin-top: 20%;
+	}
+  .jumbotron-heading {
+  	font-size: 4.5em;
+  }
+}
+
