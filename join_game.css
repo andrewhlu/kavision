@@ -1,3 +1,7 @@
+body {
+    background-color: #A8D9F1;
+}
+
 #create_game_jumbo {
     font-size: 6.0em;
 }
@@ -6,6 +10,9 @@
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+}
+.jumbotron {
+    background-color: #efe9e900;
 }
 @media only screen and (max-width: 600px) {
 	#mySection {
