@@ -82,7 +82,7 @@ FirebaseAuth.prototype.onAuthStateChanged = function(user) {
   if(user) { 
     //this.nameButton.innerHTML = user.displayName;
     this.nameButton.removeAttribute("hidden");
-    this.loginutton.setAttribute("hidden", true);
+    this.loginButton.setAttribute("hidden", true);
 
 
     // $('#nameButton').html(user.displayName);
