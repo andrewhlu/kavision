@@ -28,7 +28,7 @@ function onStartup() {
   });
 
   // Set the date we're counting down to
-    var seconds = 3*1000
+    var seconds = 60*1000
     var mins = 0*1000*60
     var hours = 0*1000*60*60
     var days = 0*1000*60*60*24
@@ -137,6 +137,8 @@ FirebaseAuth.prototype.captureImage = function() {
   $('#modal-result-success').attr("hidden", true);
   $('#modal-result-failure').attr("hidden", true);
 
+  $('#myModal').modal('show');
+
   this.context.drawImage(this.player, 0, 0, this.canvas.width, this.canvas.height);
 
   this.image = this.canvas.toDataURL();
@@ -162,6 +164,8 @@ FirebaseAuth.prototype.captureImage = function() {
 
       $.ajax(settings).done(function (response) {
         console.log(response);
+        $('#myModal').modal('show');
+        
         if(response.success == true) { //valid
           console.log(response.found);
 
