@@ -165,24 +165,27 @@ FirebaseAuth.prototype.captureImage = function() {
       $.ajax(settings).done(function (response) {
         console.log(response);
         $('#myModal').modal('show');
-        
-        if(response.success == true) { //valid
+
+        if(response.success) { //valid
           console.log(response.found);
 
-          $('#image-success').attr("src", url);
+          if(response.found) {
+            $('#image-success').attr("src", url);
 
-          $('#modal-loading').attr("hidden", true);
-          $('#modal-result-success').removeAttr("hidden");
-          $('#modal-result-failure').attr("hidden", true);
+            $('#modal-loading').attr("hidden", true);
+            $('#modal-result-success').removeAttr("hidden");
+            $('#modal-result-failure').attr("hidden", true);
+          }
+          else {
+            $('#image-failed').attr("src", url);
+
+            $('#modal-loading').attr("hidden", true);
+            $('#modal-result-failure').removeAttr("hidden");
+            $('#modal-result-success').attr("hidden", true);
+          }
         }
         else {
           console.log(response.error);
-
-          $('#image-failed').attr("src", url);
-
-          $('#modal-loading').attr("hidden", true);
-          $('#modal-result-failure').removeAttr("hidden");
-          $('#modal-result-success').attr("hidden", true);
         }
       });
     }.bind(this)).catch(function(error) {
