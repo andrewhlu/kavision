@@ -98,6 +98,10 @@ FirebaseAuth.prototype.onAuthStateChanged = function(user) {
 FirebaseAuth.prototype.captureImage = function() {
   console.log("Hello");
 
+  var player = document.getElementById('player');
+  var canvas = document.getElementById('canvas');
+  var context = canvas.getContext('2d');
+
   context.drawImage(player, 0, 0, canvas.width, canvas.height);
   var image = canvas.toDataURL();
 
