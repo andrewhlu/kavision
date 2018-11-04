@@ -1,0 +1,18 @@
+body {
+	background-color: #A8D9F1;
+}
+
+#bannerTitle {
+	/*position: fixed;*/
+	text-align: center;
+	font-size: 120px;
+}
+
+#bannerTitleContainer {
+	/*vertical-align: baseline;*/
+	margin-top: 15%;
+}
+
+button {
+	color: #b4a8f1;
+}
