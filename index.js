@@ -116,13 +116,17 @@ FirebaseAuth.prototype.captureImage = function() {
       console.log(url);
 
       //Call the Image Recognition API
-      var urlstring = "https://us-central1-scavision-hunt.cloudfunctions.net/processImage?url=" + url + "&game=ABCD";
+      var urlstring = "https://us-central1-scavision-hunt.cloudfunctions.net/processImage";
 
       var settings = {
         "async": true,
         "crossDomain": true,
         "url": urlstring,
-        "method": "GET"
+        "method": "POST",
+        "formData": { 
+          url: url,
+          game: 'ABCD' 
+        }
       }
 
       $.ajax(settings).done(function (response) {
