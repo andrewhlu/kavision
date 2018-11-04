@@ -106,11 +106,19 @@ FirebaseAuth.prototype.captureImage = function() {
   var image = canvas.toDataURL();
 
   console.log(image);
+  var imgName = randomString(10, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
   // Data URL string
-  firebase.storage().ref().child('/images').putString(image, 'data_url').then(function(snapshot) {
+  firebase.storage().ref().child('/images/' + imgName + ".png").putString(image, 'data_url').then(function(snapshot) {
     console.log('Uploaded a data_url string!');
   });
 
 
 };
+
+//Generate random string function
+function randomString(length, chars) {
+  var result = '';
+  for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+  return result;
+}
