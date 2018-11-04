@@ -116,7 +116,7 @@ FirebaseAuth.prototype.captureImage = function() {
       console.log(url);
 
       //Call the Image Recognition API
-      var urlstring = "https://us-central1-scavision-hunt.cloudfunctions.net/processImage?url=" + encodeURIComponent(image) + "&game=ABCD";
+      var urlstring = "https://us-central1-scavision-hunt.cloudfunctions.net/processImage?url=" + encodeURIComponent(this.image) + "&game=ABCD";
 
       var settings = {
         "async": true,
