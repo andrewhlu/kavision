@@ -44,6 +44,10 @@ function FirebaseAuth() {
   this.loginButton = document.getElementById('loginButton');
   this.nameButton = document.getElementById('nameButton');
 
+  this.player = document.getElementById('player');
+  this.canvas = document.getElementById('canvas');
+  this.context = canvas.getContext('2d');
+
   // Add listeners for buttons.
   this.loginButton.addEventListener('click', this.googleSignIn.bind(this));
   this.captureButton.addEventListener('click', this.captureImage.bind(this));
@@ -98,22 +102,42 @@ FirebaseAuth.prototype.onAuthStateChanged = function(user) {
 FirebaseAuth.prototype.captureImage = function() {
   console.log("Hello");
 
-  var player = document.getElementById('player');
-  var canvas = document.getElementById('canvas');
-  var context = canvas.getContext('2d');
+  this.context.drawImage(this.player, 0, 0, this.canvas.width, this.canvas.height);
 
-  context.drawImage(player, 0, 0, canvas.width, canvas.height);
-  var image = canvas.toDataURL();
-
-  console.log(image);
-  var imgName = randomString(10, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+  this.image = this.canvas.toDataURL();
+  this.imgName = randomString(10, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
   // Data URL string
-  firebase.storage().ref().child('/images/' + imgName + ".png").putString(image, 'data_url').then(function(snapshot) {
+  this.storage().ref().child('/images/' + this.imgName + '.png').putString(this.image, 'data_url').then(function(snapshot) {
     console.log('Uploaded a data_url string!');
+
+    //Get the URL of the newly uploaded object
+    this.storage.ref('/images/' + this.imgName + '.png').getDownloadURL().then(function(url) {
+      console.log(url);
+
+      //Call the Image Recognition API
+      var urlstring = "https://us-central1-scavision-hunt.cloudfunctions.net/processImage?url=" + url + "&game=ABCD";
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": urlstring,
+        "method": "GET"
+      }
+
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+        if(response.success == true) { //valid
+          console.log(response.found);
+        }
+        else {
+          console.log(response.error);
+        }
+      });
+    }).catch(function(error) {
+      console.log(error);
+    });
   });
-
-
 };
 
 //Generate random string function
