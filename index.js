@@ -15,13 +15,6 @@ function onStartup() {
     video: true,
   };
 
-  // captureButton.addEventListener('click', () => {
-  //   // Draw the video frame to the canvas.
-  //   context.drawImage(player, 0, 0, canvas.width, canvas.height);
-
-  //   //Upload the image to the server
-  // });
-
   navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
     player.srcObject = stream;
 
@@ -33,6 +26,46 @@ function onStartup() {
       console.log("Canvas: " + canvas.height + ", " + canvas.width);
     }, 2000);
   });
+
+  // Set the date we're counting down to
+    var seconds = 3*1000
+    var mins = 0*1000*60
+    var hours = 0*1000*60*60
+    var days = 0*1000*60*60*24
+    var countDownDate = ((new Date().getTime())+mins+hours+days+seconds);
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+  
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    if (days > 0){
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    } else if (minutes > 0){
+      document.getElementById("demo").innerHTML = hours + "h "
+    + minutes + "m " + seconds + "s ";
+    } else {
+      document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+    }
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("demo").innerHTML = "Time's Up!";
+      $('#myModal').modal('show'); 
+    }
+  }, 1000);
 }
 
 //Firebase API
