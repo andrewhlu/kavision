@@ -112,7 +112,7 @@ FirebaseAuth.prototype.captureImage = function() {
     console.log('Uploaded a data_url string!');
 
     //Get the URL of the newly uploaded object
-    this.storage.ref('/images/' + this.imgName + '.png').getDownloadURL().then(function(url) {
+    this.storage.ref().child('/images/' + this.imgName + '.png').getDownloadURL().then(function(url) {
       console.log(url);
 
       //Call the Image Recognition API
