@@ -134,10 +134,10 @@ FirebaseAuth.prototype.captureImage = function() {
           console.log(response.error);
         }
       });
-    }).catch(function(error) {
+    }.bind(this)).catch(function(error) {
       console.log(error);
     });
-  });
+  }.bind(this));
 };
 
 //Generate random string function
