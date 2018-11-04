@@ -105,10 +105,11 @@ FirebaseAuth.prototype.captureImage = function() {
   context.drawImage(player, 0, 0, canvas.width, canvas.height);
   var image = canvas.toDataURL();
 
+  console.log(image);
+
   // Data URL string
   firebase.storage().ref().child('/images').putString(image, 'data_url').then(function(snapshot) {
     console.log('Uploaded a data_url string!');
-    console.log(snapshot.val());
   });
 
 
